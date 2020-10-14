@@ -29,7 +29,7 @@ function App() {
   const goToPrevPage = () => {
     let isFirstPage = prevURL.split('=')[1];
     console.log(isFirstPage);
-    if (isFirstPage !== '1') {
+    if (isFirstPage !== '1' || isFirstPage !== '') {
       fetchData(prevURL);
     } else {
       fetchData(apiURL);
