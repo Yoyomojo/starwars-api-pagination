@@ -1,0 +1,23 @@
+table {
+    border:1px solid #EFEFEF;
+    width:100%;
+}
+
+table th {
+    text-align:left;
+    font-weight:bold;
+}
+
+table td {
+    padding: 12px;
+}
+
+.even {
+    background-color:black;
+    color:#FFF;
+}
+
+.odd {
+    background-color: #EFEFEF;
+    color:#000;
+}
