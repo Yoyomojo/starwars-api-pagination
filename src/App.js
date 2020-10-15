@@ -27,11 +27,9 @@ function App() {
   }
 
   const goToPrevPage = () => {
-    let isFirstPage = apiURL.split('=');
-    if (isFirstPage !== '2' || isFirstPage !== '') {
-      fetchData(prevURL);
-    } else {
-      fetchData(apiURL);
+    const isFirstPage = prevURL?.split('=')[1];
+    fetchData(prevURL);
+    if (isFirstPage === '1' || typeof isFirstPage === undefined) {
       setIsPaginated(false);
     }
   }
