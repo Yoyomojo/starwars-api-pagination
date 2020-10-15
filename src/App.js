@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Button, Col, Container, Row, Table } from 'reactstrap';
 import './table.css';
 
 function App() {
@@ -11,8 +12,8 @@ function App() {
     fetchData(apiURL);
   }, []);
 
-  const fetchData = (apiURL) => {
-    fetch(apiURL)
+  const fetchData = (url) => {
+    fetch(url)
     .then(function(response) {
       return response.json();
     })
@@ -41,33 +42,49 @@ function App() {
 
   return (
     <>
-      <p>Starwars</p>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Homeworld</th>
-          </tr>
-        </thead>
-        <tbody>
-          {starPeeps && starPeeps.map((person, index) => (
-            <tr key={index} className={index%2 === 0 ? 'even' : 'odd'}>
-              <td>{person.name}</td>
-              <td>{person.gender}</td>
-              <td>{person.homeworld}</td>
-            </tr>
-          ))}
-          <tr>
+    <Container fluid>
+      <Row>
+        <Col>
+          <header>
+            <h1>Starwars API Pagination</h1>
+          </header>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col>
+          <Table dark striped>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Homeworld</th>
+              </tr>
+            </thead>
+            <tbody>
+              {starPeeps && starPeeps.map((person, index) => (
+                <tr key={index} className={index%2 === 0 ? 'even' : 'odd'}>
+                  <td>{person.name}</td>
+                  <td>{person.gender}</td>
+                  <td>{person.homeworld}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col>
             {isPaginated ?
-              <td><button type="button" onClick={goToPrevPage}>Go Back</button></td>
+              <Button color="secondary" type="button" className="mr-4" onClick={goToPrevPage}>Go Back</Button>
             :
               null
             }
-            <td><button type="button" onClick={goToNextPage}>Click me Obi Wan, you're my only hope</button></td>
-          </tr>
-        </tbody>
-      </table>
+            <Button color="secondary" type="button" onClick={goToNextPage}>Click me Obi Wan, you're my only hope</Button>
+        </Col>
+      </Row>
+    </Container>
     </>
   );
 }

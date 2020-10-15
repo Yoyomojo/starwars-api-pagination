@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 table {
     border:1px solid #EFEFEF;
     width:100%;
+    font-family: 'Roboto', sans-serif;
 }
 
 table th {
@@ -12,7 +15,7 @@ table td {
     padding: 12px;
 }
 
-.even {
+/* .even {
     background-color:black;
     color:#FFF;
 }
@@ -20,4 +23,4 @@ table td {
 .odd {
     background-color: #EFEFEF;
     color:#000;
-}
+} */
