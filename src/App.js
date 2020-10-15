@@ -18,7 +18,8 @@ function App() {
       return response.json();
     })
     .then(function(jsonResp) {
-      setStarPeeps(jsonResp.results);
+      const results = jsonResp.results;
+      setStarPeeps(results);
       setAPIUrl(jsonResp.next);
       setPrevURL(jsonResp.previous);
     })
